@@ -5,8 +5,7 @@ This API helps manage patient data, search diseases, and calculate health metric
 
 ## 🚀 Features
 - ✅ CRUD API for patients  
-- ✅ Disease search (from dataset)  
-- ✅ BMI / Health risk calculator  
+- ✅ Disease search (from dataset)
 - ✅ Interactive Swagger docs  
 
 ## 📦 Installation
