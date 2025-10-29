@@ -4,10 +4,14 @@ from app import database
 
 router = APIRouter()
 
-# Get all diseases
-@router.get("/", response_model=list[Disease])
+# Get all diseases (with total count)
+@router.get("/")
 def get_diseases():
-    return database.diseases_db
+    total = len(database.diseases_db)
+    return {
+        "total_diseases": total,
+        "diseases": database.diseases_db
+    }
 
 # Search disease by name
 @router.get("/search", response_model=Disease)

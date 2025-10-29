@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import patients, diseases, health
+from app.routers import patients, diseases
 
 app = FastAPI(
     title="MediConnect API",
@@ -10,7 +10,7 @@ app = FastAPI(
 # Include routers
 app.include_router(patients.router, prefix="/patients", tags=["Patients"])
 app.include_router(diseases.router, prefix="/diseases", tags=["Diseases"])
-app.include_router(health.router, prefix="/health", tags=["Health"])
+
 
 @app.get("/")
 def root():

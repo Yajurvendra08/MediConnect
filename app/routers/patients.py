@@ -11,10 +11,14 @@ def create_patient(patient: Patient):
     database.patients_db.append(patient)
     return patient
 
-# Get all patients
-@router.get("/", response_model=list[Patient])
+# Get all patients (with total count)
+@router.get("/")
 def get_patients():
-    return database.patients_db
+    total = len(database.patients_db)
+    return {
+        "total_patients": total,
+        "patients": database.patients_db
+    }
 
 # Get patient by ID
 @router.get("/{patient_id}", response_model=Patient)
@@ -34,11 +38,22 @@ def update_patient(patient_id: int, updated_patient: Patient):
             return updated_patient
     raise HTTPException(status_code=404, detail="Patient not found")
 
+# Partially update patient details
+@router.patch("/{patient_id}", response_model=Patient)
+def patch_patient(patient_id: int, updated_data: dict):
+    for patient in database.patients_db:
+        if patient.id == patient_id:
+            for key, value in updated_data.items():
+                if hasattr(patient, key):
+                    setattr(patient, key, value)
+            return patient
+    raise HTTPException(status_code=404, detail="Patient not found")
+
 # Delete patient
 @router.delete("/{patient_id}")
 def delete_patient(patient_id: int):
     for index, patient in enumerate(database.patients_db):
         if patient.id == patient_id:
             database.patients_db.pop(index)
-            return {"message": "Patient deleted"}
+            return {"message": "Patient deleted successfully"}
     raise HTTPException(status_code=404, detail="Patient not found")

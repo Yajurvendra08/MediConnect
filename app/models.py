@@ -7,7 +7,6 @@ class Patient(BaseModel):
     name: str
     age: int
     symptoms: str
-    diagnosis: Optional[str] = None
 
 # Disease model
 class Disease(BaseModel):
@@ -16,6 +15,6 @@ class Disease(BaseModel):
     treatment: str
 
 # BMI request model
-class BMIRequest(BaseModel):
-    weight: float  # in kg
-    height: float  # in meters
+# class BMIRequest(BaseModel):
+#     weight: float  # in kg
+#     height: float  # in meters
