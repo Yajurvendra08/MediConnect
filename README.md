@@ -1,7 +1,6 @@
 # 🩺 MediConnect - Medical API (FastAPI)
 
-A simple and useful FastAPI project for healthcare.  
-This API helps manage patient data, search diseases, and calculate health metrics.
+📘 A simple repository built to understand the FastAPI framework and explore RESTful API operations — including GET, POST, PUT, PATCH, and DELETE methods.
 
 ## 🚀 Features
 - ✅ CRUD API for patients  
