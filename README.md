@@ -1,6 +1,6 @@
 # 🩺 MediConnect - Medical API (FastAPI)
 
-📘 A simple repository built to understand the FastAPI framework and explore RESTful API operations — including GET, POST, PUT, PATCH, and DELETE methods.
+📘 A simple repository built to understand the FastAPI framework and explore RESTful API operations :- including GET, POST, PUT, PATCH, and DELETE methods.
 
 ## 🚀 Features
 - ✅ CRUD API for patients  
